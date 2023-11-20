@@ -1,9 +1,8 @@
-﻿using OnlineShop.DomainLayer.Model;
-using OnlineShop.DomainLayer.Models;
+﻿using OnlineShop.DomainLayer.Models;
 
 namespace OnlineShop.RepositoryLayer.Contracts
 {
-    internal interface IOrderService
+    public interface IOrderRepository
     {
         Order PlaceOrder(int customerId, List<CartItem> cartItems);
         Order GetOrderById(int orderId);

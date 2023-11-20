@@ -1,4 +1,4 @@
-﻿namespace OnlineShop.DomainLayer.Model
+﻿namespace OnlineShop.DomainLayer.Models
 {
     public class Product
     {

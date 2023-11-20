@@ -1,8 +1,8 @@
-﻿using OnlineShop.DomainLayer.Model;
+﻿using OnlineShop.DomainLayer.Models;
 
 namespace OnlineShop.RepositoryLayer.Contracts
 {
-    internal interface IProductService
+    public interface IProductRepository
     {
         Product GetProductById(int productId);
         IEnumerable<Product> GetAllProducts();
