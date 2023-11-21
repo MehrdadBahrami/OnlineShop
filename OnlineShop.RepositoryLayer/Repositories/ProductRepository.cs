@@ -1,14 +1,9 @@
-﻿using OnlineShop.DomainLayer.Model;
+﻿using OnlineShop.DomainLayer.Models;
 using OnlineShop.RepositoryLayer.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineShop.RepositoryLayer.Repositories
 {
-    internal class ProductRepository : IProductRepository
+    public class ProductRepository : IProductRepository
     {
         // List acting as an in-memory data store
         private readonly List<Product> _products;
@@ -27,7 +22,7 @@ namespace OnlineShop.RepositoryLayer.Repositories
         void IProductRepository.AddProduct(Product product)
         {
             // Simulating auto-increment for a new product
-            product.ProductId = _products.Count + 1; 
+            product.ProductId = _products.Count + 1;
             _products.Add(product);
         }
 
@@ -43,7 +38,7 @@ namespace OnlineShop.RepositoryLayer.Repositories
         IEnumerable<Product> IProductRepository.GetAllProducts()
         {
             // Return a copy to avoid external modifications
-            return _products.ToList(); 
+            return _products.ToList();
         }
 
         Product IProductRepository.GetProductById(int productId)
@@ -55,7 +50,7 @@ namespace OnlineShop.RepositoryLayer.Repositories
                     Name = "Null value",
                     Price = 0
                 };
-                
+
         }
 
         void IProductRepository.UpdateProduct(Product product)

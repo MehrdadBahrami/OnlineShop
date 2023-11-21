@@ -24,8 +24,8 @@ namespace OnlineShop.ServiceLayer.Services
         await Task.Run(() => _orderRepository.GetOrdersByCustomer(customerId));
 
 
-        async Task<Order> IOrderService.PlaceOrderAsync(int customerId, List<CartItem> cartItems) => 
-        await Task.Run(() => _orderRepository.PlaceOrder(customerId, cartItems));
+        async Task<Order> IOrderService.PlaceOrderAsync(int orderId, int customerId, List<CartItem> cartItems) => 
+        await Task.Run(() => _orderRepository.PlaceOrder(orderId,customerId, cartItems));
 
         async Task IOrderService.UpdateOrderStatusAsync(int orderId, string newStatus) => 
         await Task.Run(() => _orderRepository.UpdateOrderStatus(orderId, newStatus));

@@ -8,9 +8,20 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.RepositoryLayer.Repositories
 {
-    internal class CustomerRepository : ICustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
-        private readonly List<Customer> _customers = new();
+        private readonly List<Customer> _customers ;
+
+        public CustomerRepository()
+        {
+            // Initialize the list (simulating a database)
+            _customers =
+        [
+            new Customer(){Address="Nothing",CustomerId=1,Email="m.bahrami.h@gmail.com",FirstName="Mehrdad",LastName="Bahrami",PasswordHash="123"}
+            // Add more sample data as needed
+        ];
+        }
+
         void ICustomerRepository.ChangePassword(int customerId, string newPassword)
         {
             var customer = _customers.FirstOrDefault(c => c.CustomerId == customerId);

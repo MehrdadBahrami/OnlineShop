@@ -3,7 +3,7 @@ using OnlineShop.RepositoryLayer.Contracts;
 
 namespace OnlineShop.RepositoryLayer.Repositories
 {
-    internal class CartRepository : ICartRepository
+    public class CartRepository : ICartRepository
     {
         private readonly List<Cart> _carts = new();
         void ICartRepository.AddItemToCart(int customerId, int productId, int quantity)

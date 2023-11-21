@@ -1,11 +1,5 @@
-﻿using OnlineShop.DomainLayer.Model;
-using OnlineShop.DomainLayer.Models;
+﻿using OnlineShop.DomainLayer.Models;
 using OnlineShop.RepositoryLayer.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineShop.RepositoryLayer.Repositories
 {
@@ -24,14 +18,14 @@ namespace OnlineShop.RepositoryLayer.Repositories
 
         Order IOrderRepository.GetOrderById(int orderId)
         {
-            return _orders.FirstOrDefault(o => o.OrderId == orderId)??
+            return _orders.FirstOrDefault(o => o.OrderId == orderId) ??
                 new Order()
-                { 
+                {
                     CustomerId = 0,
-                    OrderDate= DateTime.Now,
+                    OrderDate = DateTime.Now,
                     OrderId = 0,
-                    OrderStatus="Fail",
-                    TotalAmount=0
+                    OrderStatus = "Fail",
+                    TotalAmount = 0
                 };
         }
 
@@ -40,11 +34,12 @@ namespace OnlineShop.RepositoryLayer.Repositories
             return _orders.Where(o => o.CustomerId == customerId).ToList();
         }
 
-        Order IOrderRepository.PlaceOrder(int customerId, List<CartItem> cartItems)
+        Order IOrderRepository.PlaceOrder(int orderId,int customerId, List<CartItem> cartItems)
         {
             // Assume the cart items are used to create the order
             var order = new Order
             {
+                OrderId=orderId,
                 CustomerId = customerId,
                 OrderDate = DateTime.Now,
                 TotalAmount = cartItems.Sum(item => item.TotalPrice),
